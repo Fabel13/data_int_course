@@ -7,7 +7,7 @@ else:
     print("Il valore inserito non è valido (\"\", \"0\", \"False\")")
 
 
-# Creare una serie di input, inserirli in una lista e stamparli controllando che la lista intera non abbia valore False
+# Creare una serie di input, inserirli in una lista e stamparli controllando che la lista intera abbia solo valori validi (no "", "0", "False")
 
 lista = []
 valore1 = input("Inserisci il primo valore: ")
@@ -23,7 +23,7 @@ else:
     print("La lista contiene almeno un valore non valido")
 
 
-# Creare un sistema di domande e input che inseriscano e controllino i dati se non sono corretti non verranno inseriti nella lista
+# Creare un sistema di domande e input che inseriscano e controllino i dati; se non sono corretti non verranno inseriti nella lista
 
 lista = []
 domanda1 = "Come ti chiami?"
