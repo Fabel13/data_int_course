@@ -1,0 +1,139 @@
+# Creare un programma che chieda come input il ruolo dell'utente. Ogni ruolo ammesso è associato ad una classe con diversi attributi
+# 1. in base al ruolo scelto, il sistema chiede in input tutti gli attributi necessarie per creare l'oggetto. Alla fine deve stampare una lista delle cose chieste
+# 2. per ogni utente, salvare le sue informazioni in una lista diversa a seconda di chi è (una lista per ogni classe)
+# 3. far ripetere il processo x volte e alla fine stampare, per ogni ruolo, la somma di utenti in quel ruolo
+
+
+class Person:
+    def __init__(self, fname, lname, age):
+        self.nome = fname
+        self.cognome = lname
+        self.età = age
+
+
+class Student(Person):
+    def __init__(self, fname, lname, age, year):
+        Person.__init__(self, fname, lname, age)
+        self.anno = year
+
+
+class Worker(Person):
+    def __init__(self, fname, lname, age, job):
+        Person.__init__(self, fname, lname, age)
+        self.lavoro = job
+
+
+# creo liste per memorizzare gli utenti
+lista_persone = []
+lista_studenti = []
+lista_lavoratori = []
+
+# numero di utenti da registrare
+numero_utenti = 3
+
+# registro ogni utente
+while numero_utenti > 0:
+    selezione = input("Chi sei? (persona, studente, lavoratore) ")
+    while selezione != "persona" and selezione != "studente" and selezione != 'lavoratore':
+        selezione = input("Ruolo non valido. Chi sei? (persona, studente, lavoratore)")
+
+
+    if selezione == "persona":
+
+        # NOME
+        nome_1 = input("Inserisci il nome: ")
+        while not nome_1:
+            nome_1 = input("Nome non valido, inserisci il nome: ")
+
+        # COGNOME
+        cognome_1 = input("Inserisci il cognome: ")
+        while not cognome_1:
+            cognome_1 = input("Cognome non valido, inserisci il cognome: ")
+
+        # ETA'
+        età_1 = input("Inserisci l'età: ")
+        while not età_1 or not età_1.isnumeric():
+            età_1 = input("Età non valida, inserisci l'età: ")
+
+        # stampo le info inserite
+        lista_1 = [nome_1, cognome_1, età_1]
+        print("Valori inseriti: ", lista_1, "\n")
+
+        # creo persona con i valori inseriti
+        persona_1 = Person(nome_1, cognome_1, età_1)
+
+        # salvo nella lista_persone
+        lista_persone.append(persona_1) 
+
+    if selezione == "studente":
+
+        # NOME
+        nome_1 = input("Inserisci il nome: ")
+        while not nome_1:
+            nome_1 = input("Nome non valido, inserisci il nome: ")
+
+        # COGNOME
+        cognome_1 = input("Inserisci il cognome: ")
+        while not cognome_1:
+            cognome_1 = input("Cognome non valido, inserisci il cognome: ")
+
+        # ETA'
+        età_1 = input("Inserisci l'età: ")
+        while not età_1 or not età_1.isnumeric():
+            età_1 = input("Età non valida, inserisci l'età: ")
+
+        # ANNO
+        anno_1 = input("Inserisci l'anno di corso: ")
+        while not anno_1 or not anno_1.isnumeric():
+            anno_1 = input("Anno di corso non valido, inserisci l'anno di corso: ")
+
+
+        # stampo le info inserite
+        lista_1 = [nome_1, cognome_1, età_1, anno_1]
+        print("Valori inseriti: ", lista_1, "\n")
+
+        # creo studente con i valori inseriti
+        studente_1 = Student(nome_1, cognome_1, età_1, anno_1)
+
+        # salvo nella lista_studenti
+        lista_studenti.append(studente_1) 
+
+    if selezione == "lavoratore":
+
+        # NOME
+        nome_1 = input("Inserisci il nome: ")
+        while not nome_1:
+            nome_1 = input("Nome non valido, inserisci il nome: ")
+
+        # COGNOME
+        cognome_1 = input("Inserisci il cognome: ")
+        while not cognome_1:
+            cognome_1 = input("Cognome non valido, inserisci il cognome: ")
+
+        # ETA'
+        età_1 = input("Inserisci l'età: ")
+        while not età_1 or not età_1.isnumeric():
+            età_1 = input("Età non valida, inserisci l'età: ")
+
+        # LAVORO
+        lavoro_1 = input("Inserisci il lavoro: ")
+        while not lavoro_1:
+            lavoro_1 = input("Lavoro non valido, inserisci il lavoro: ")
+
+
+        # stampo le info inserite
+        lista_1 = [nome_1, cognome_1, età_1, lavoro_1]
+        print("Valori inseriti: ", lista_1, "\n")
+
+        # creo lavoratore con i valori inseriti
+        lavoratore_1 = Worker(nome_1, cognome_1, età_1, lavoro_1)
+
+        # salvo nella lista_lavoratori
+        lista_lavoratori.append(lavoratore_1) 
+
+    numero_utenti -= 1
+
+# recap del numero di utenti registrati, divisi per ruolo
+print("numero persone: ", len(lista_persone))
+print("numero studenti: ", len(lista_studenti))
+print("numero lavoratori: ", len(lista_lavoratori))
