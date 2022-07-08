@@ -1,0 +1,40 @@
+# creare una classe generatrice di liste,
+# istanziare un oggetto 'lista'
+# riempire la lista con input di nome, cognome, età e professione controllando
+# che i valori inseriti siano validi
+
+class genera_liste():
+    lista = []
+
+a = genera_liste()
+lista = a.lista
+
+# NOME
+valore = input("Inserisci il nome: ")
+if valore:
+    lista.append(valore)
+else:
+    print("valore non valido")
+
+# COGNOME
+valore = input("Inserisci il cognome: ")
+if valore:
+    lista.append(valore)
+else:
+    print("valore non valido")
+
+# ETA'
+valore = input("Inserisci l'età: ")
+if valore and valore.isnumeric():
+    lista.append(valore)
+else:
+    print("valore non valido")
+
+# PROFESSIONE
+valore = input("Inserisci la professione: ")
+if valore:
+    lista.append(valore)
+else:
+    print("valore non valido")
+
+print(lista)
